@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veridex Data Intelligence</title>
+
+<!-- Bootstrap & Fonts -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+body {
+  font-family:'Inter',sans-serif;
+  margin:0;
+  scroll-behavior:smooth;
+  background:#0b0f1a;
+  color:#e0e0e0;
+}
+
+/* Navbar */
+.navbar{
+  backdrop-filter: blur(12px);
+  background: rgba(10,37,64,0.9) !important;
+  min-height:80px;
+}
+.navbar-brand img{height:100px;}
+.nav-link{color:#e0e0e0 !important;font-weight:500;}
+.nav-link:hover{color:#00d4ff !important;}
+
+/* Hero */
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(135deg,#0d1b2a,#0a2540);
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  width:200%;
+  height:200%;
+  background:radial-gradient(circle,#00d4ff20,#0b0f1a 70%);
+  top:-50%;
+  left:-50%;
+  animation:rotateBg 40s linear infinite;
+  z-index:0;
+}
+@keyframes rotateBg{
+  0%{transform:rotate(0deg);}
+  100%{transform:rotate(360deg);}
+}
+.hero-content{
+  position:relative;
+  z-index:1;
+}
+.hero-content h1{
+  font-size:3rem;
+  font-weight:700;
+  margin-top:20px;
+}
+.badge-theme{
+  background:linear-gradient(90deg,#6366F1,#22D3EE);
+  color:#020617;
+  padding:10px 20px;
+  border-radius:999px;
+  font-weight:600;
+  display:inline-block;
+  margin-bottom:20px;
+}
+
+/* Section padding */
+.section-padding{padding:80px 0;}
+
+/* Glass Cards */
+.card-glass{
+  border-radius:20px;
+  background:rgba(255,255,255,.05);
+  backdrop-filter: blur(10px);
+  box-shadow:0 15px 35px rgba(0,212,255,.1);
+  transition:.4s;
+  height:100%;
+  padding:30px;
+  color:#e0e0e0;
+  text-align:center;
+}
+.card-glass:hover{transform:translateY(-8px); box-shadow:0 25px 45px rgba(0,212,255,.2);}
+.card-glass i{font-size:36px;color:#00d4ff;margin-bottom:12px;}
+.card-glass h5{color:#00d4ff;margin-bottom:10px;}
+
+/* Buttons */
+.btn-primary{
+  background:linear-gradient(90deg,#6366F1,#22D3EE);
+  border:none;
+  border-radius:12px;
+  padding:12px 20px;
+  font-weight:600;
+}
+.btn-light{
+  border-radius:12px;
+  padding:12px 20px;
+  font-weight:600;
+  color:#121212;
+}
+
+/* Form */
+.form-control{
+  border-radius:12px;
+  padding:12px;
+  background:rgba(255,255,255,0.05);
+  color:#e0e0e0;
+  border:1px solid #444;
+}
+.form-control:focus{
+  background:rgba(255,255,255,0.05);
+  border-color:#00d4ff;
+  color:#fff;
+}
+.invalid-feedback{
+  display:none;
+  color:#ff4d4f;
+  font-size:0.9rem;
+}
+
+/* Info Section Cards */
+.info-card{
+  border-radius:20px;
+  background:rgba(255,255,255,.05);
+  backdrop-filter:blur(10px);
+  box-shadow:0 15px 35px rgba(0,212,255,.1);
+  transition:.4s;
+  padding:30px;
+  text-align:center;
+  color:#e0e0e0;
+}
+.info-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 25px 45px rgba(0,212,255,.2);
+}
+.info-card h5{
+  color:#00d4ff;
+  margin-bottom:15px;
+}
+.info-card ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.info-card ul li{
+  margin-bottom:8px;
+}
+
+/* Footer */
+footer{
+  background:linear-gradient(135deg,#020617,#312E81,#0EA5E9);
+  color:#E0E7FF;
+  padding:60px 0;
+  text-align:center;
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+<div class="container">
+  <a class="navbar-brand" href="#"><img src="veridex.png" alt="Logo"></a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navMenu">
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+      <li class="nav-item"><a class="nav-link" href="#tech-contact">Contact</a></li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">More</a>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <li><a class="dropdown-item" href="#info">Info & Form</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <img src="veridex.png" style="height:120px;margin-bottom:20px">
+    <span class="badge-theme">Enterprise Data Intelligence</span>
+    <h1 class="mt-4 fw-bold">Veridex Data Intelligence</h1>
+    <p class="lead mt-3">Verified Data. Intelligent Decisions. We help businesses extract, monitor, and analyze high‑quality data at scale.</p>
+    <a href="#contactModal" class="btn btn-light btn-lg mt-4" data-bs-toggle="modal">Request a Demo</a>
+  </div>
+</section>
+
+<!-- Info Section -->
+<section class="section-padding" id="info">
+  <div class="container">
+    <div class="row g-4">
+      <!-- What We Offer -->
+      <div class="col-md-4">
+        <div class="info-card h-100">
+          <i class="fa-solid fa-gift fa-2x mb-3"></i>
+          <h5>What We Offer</h5>
+          <ul>
+            <li>Competitive salary</li>
+            <li>Performance bonuses</li>
+            <li>Learning & development programs</li>
+            <li>Health & wellness support</li>
+            <li>Remote work options</li>
+            <li>Paid leaves & holidays</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Mission -->
+      <div class="col-md-4">
+        <div class="info-card h-100">
+          <i class="fa-solid fa-bullseye fa-2x mb-3"></i>
+          <h5>Mission</h5>
+          <p>To democratize access to data by providing reliable, ethical, and affordable data solutions that empower businesses of all sizes.</p>
+        </div>
+      </div>
+      <!-- Vision -->
+      <div class="col-md-4">
+        <div class="info-card h-100">
+          <i class="fa-solid fa-eye fa-2x mb-3"></i>
+          <h5>Vision</h5>
+          <p>To become a global leader in data extraction and intelligence, driving innovation and informed decision-making worldwide.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section-padding" id="services">
+<div class="container">
+<div class="text-center mb-5">
+  <h2 class="fw-bold mt-3">Our Core Services</h2>
+</div>
+<div class="row g-4">
+  <div class="col-md-4"><div class="card-glass"><i class="fa-solid fa-database"></i><h5>Web Scraping & Data Extraction</h5><p>Collect structured & unstructured data from websites and portals with high accuracy.</p></div></div>
+  <div class="col-md-4"><div class="card-glass"><i class="fa-solid fa-mobile-screen-button"></i><h5>Application Scraping</h5><p>Secure extraction from web & mobile applications using smart automation & crawlers.</p></div></div>
+  <div class="col-md-4"><div class="card-glass"><i class="fa-solid fa-chart-line"></i><h5>Price Intelligence & Analytics</h5><p>Real-time competitor tracking, dynamic pricing insights & trend analytics to stay ahead.</p></div></div>
+</div>
+</div>
+</section>
+
+<!-- Technologies + Contact Info Section -->
+<section class="section-padding" id="tech-contact">
+  <div class="container">
+    <div class="row g-4">
+      <!-- Technologies -->
+      <div class="col-md-6">
+        <div class="info-card h-100">
+          <h5 class="mb-3"><i class="fa-solid fa-microchip"></i> Technologies We Use</h5>
+          <div class="d-flex flex-wrap justify-content-start">
+            <i class="fa-brands fa-python fa-2x m-2"></i>
+            <i class="fa-brands fa-js fa-2x m-2"></i>
+            <i class="fa-brands fa-node fa-2x m-2"></i>
+            <i class="fa-brands fa-aws fa-2x m-2"></i>
+            <i class="fa-solid fa-cloud fa-2x m-2"></i>
+            <i class="fa-solid fa-robot fa-2x m-2"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Details -->
+      <div class="col-md-6">
+        <div class="info-card h-100">
+          <h5 class="mb-3"><i class="fa-solid fa-address-book"></i> Contact Details</h5>
+          <ul class="list-unstyled mt-2" style="line-height:2;">
+            <li>📧 <strong>Email:</strong> sales@veridexdataintelligence.com</li>
+            <li>📞 <strong>Phone:</strong> +91 7048883843</li>
+            <li>📍 <strong>Location:</strong> Ahmedabad, India</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Page Contact Form Section -->
+<section class="section-padding" id="contact">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Get in Touch</h2>
+      <p class="text-muted">Fill the form below or click “Request a Demo” to contact us</p>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="info-card">
+          <form id="pageContactForm">
+            <div class="mb-3">
+              <label for="fromPage" class="form-label">From</label>
+              <input type="text" id="fromPage" class="form-control" placeholder="Your company or origin">
+              <div class="invalid-feedback" id="fromPageError">Enter From</div>
+            </div>
+            <div class="mb-3">
+              <label for="namePage" class="form-label">Your Name</label>
+              <input type="text" id="namePage" class="form-control" placeholder="Enter your full name">
+              <div class="invalid-feedback" id="namePageError">Enter your name</div>
+            </div>
+            <div class="mb-3">
+              <label for="emailPage" class="form-label">Email Address</label>
+              <input type="email" id="emailPage" class="form-control" placeholder="Enter your email">
+              <div class="invalid-feedback" id="emailPageError">Enter a valid email</div>
+            </div>
+            <div class="mb-3">
+              <label for="phonePage" class="form-label">Phone Number</label>
+              <input type="text" id="phonePage" class="form-control" placeholder="10-digit phone number" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+              <div class="invalid-feedback" id="phonePageError">Phone number must be 10 digits</div>
+            </div>
+            <div class="mb-3">
+              <label for="messagePage" class="form-label">Message</label>
+              <textarea id="messagePage" class="form-control" rows="4" placeholder="Enter your message"></textarea>
+              <div class="invalid-feedback" id="messagePageError">Enter a message</div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Modal -->
+<div class="modal fade" id="contactModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content p-4" style="background:#121212;color:#e0e0e0;">
+      <div class="modal-header">
+        <h5 class="modal-title">Contact Us</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="modalContactForm">
+          <div class="mb-3">
+            <label for="fromModal" class="form-label">From</label>
+            <input type="text" id="fromModal" class="form-control" placeholder="Your company or origin">
+            <div class="invalid-feedback" id="fromModalError">Enter From</div>
+          </div>
+          <div class="mb-3">
+            <label for="nameModal" class="form-label">Your Name</label>
+            <input type="text" id="nameModal" class="form-control" placeholder="Enter your full name">
+            <div class="invalid-feedback" id="nameModalError">Enter your name</div>
+          </div>
+          <div class="mb-3">
+            <label for="emailModal" class="form-label">Email Address</label>
+            <input type="email" id="emailModal" class="form-control" placeholder="Enter your email">
+            <div class="invalid-feedback" id="emailModalError">Enter a valid email</div>
+          </div>
+          <div class="mb-3">
+            <label for="phoneModal" class="form-label">Phone Number</label>
+            <input type="text" id="phoneModal" class="form-control" placeholder="10-digit phone number" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+            <div class="invalid-feedback" id="phoneModalError">Phone number must be 10 digits</div>
+          </div>
+          <div class="mb-3">
+            <label for="messageModal" class="form-label">Message</label>
+            <textarea id="messageModal" class="form-control" rows="4" placeholder="Enter your message"></textarea>
+            <div class="invalid-feedback" id="messageModalError">Enter a message</div>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+<div class="container text-center">
+  <p>© 2025 Veridex Data Intelligence. All Rights Reserved.</p>
+  <small>Ahmedabad, India | Web Scraping • Data Extraction • Price Intelligence</small>
+</div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Form validation for page + modal forms
+function validateForm(name,email,phone,message,from,nameErr,emailErr,phoneErr,messageErr,fromErr){
+  let emailPattern=/^[^ ]+@[^ ]+\.[a-z]{2,}$/;
+  let phonePattern=/^[0-9]{10}$/;
+  let valid=true;
+  if(from.value.trim()==""){ document.getElementById(fromErr).style.display="block"; valid=false;} else{document.getElementById(fromErr).style.display="none";}
+  if(name.value.trim()==""){ document.getElementById(nameErr).style.display="block"; valid=false;} else{document.getElementById(nameErr).style.display="none";}
+  if(!emailPattern.test(email.value)){ document.getElementById(emailErr).style.display="block"; valid=false;} else{document.getElementById(emailErr).style.display="none";}
